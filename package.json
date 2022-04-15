@@ -4,7 +4,7 @@
   "description": "Node.js application built on Rocketseat's Ignite course, used to study basic concepts of TypeScript, SOLID, clean code and other techniques.",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
   },
   "repository": {
     "type": "git",
