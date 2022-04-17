@@ -3,12 +3,12 @@ import { Request, Response } from "express";
 import { CreateCategoryUseCase } from "./create-category-use-case";
 
 class CreateCategoryController {
-  constructor(private readonly createCategoryUseCase: CreateCategoryUseCase) {}
+  constructor(private readonly useCase: CreateCategoryUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
       const { name, description } = request.body;
-      const category = this.createCategoryUseCase.execute({
+      const category = this.useCase.execute({
         name,
         description,
       });
