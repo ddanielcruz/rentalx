@@ -5,7 +5,13 @@ interface ICreateCategoryDTO {
   description: string;
 }
 
-export class CategoriesRepository {
+interface ICategoriesRepository {
+  create(dto: ICreateCategoryDTO): Category;
+  findAll(): Category[];
+  findByName(name: string): Category | undefined;
+}
+
+class CategoriesRepository implements ICategoriesRepository {
   private readonly categories: Category[] = [];
 
   create({ name, description }: ICreateCategoryDTO): Category {
@@ -23,3 +29,5 @@ export class CategoriesRepository {
     return this.categories.find((category) => category.name === name);
   }
 }
+
+export { ICategoriesRepository, CategoriesRepository };
