@@ -3,7 +3,7 @@ import { Router } from "express";
 import { CategoriesRepository } from "../modules/cars/repositories/categories-repository";
 import { CreateCategoryService } from "../modules/cars/services/create-category-service";
 
-export const routes = Router();
+const routes = Router();
 const repository = new CategoriesRepository();
 
 routes.post("/", (request, response) => {
@@ -22,3 +22,5 @@ routes.get("/", (_request, response) => {
   const categories = repository.findAll();
   return response.json(categories);
 });
+
+export { routes };
