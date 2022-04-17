@@ -5,9 +5,9 @@ import {
 } from "../categories-repository";
 
 export class MemoryCategoriesRepository implements ICategoriesRepository {
-  private readonly categories: Category[];
-
   private static INSTANCE: MemoryCategoriesRepository;
+
+  private readonly categories: Category[];
 
   private constructor() {
     this.categories = [];

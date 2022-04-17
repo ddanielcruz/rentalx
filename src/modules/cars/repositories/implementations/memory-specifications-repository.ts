@@ -7,7 +7,22 @@ import {
 export class MemorySpecificationsRepository
   implements ISpecificationsRepository
 {
-  private readonly specifications: Specification[] = [];
+  private static INSTANCE: MemorySpecificationsRepository;
+
+  private readonly specifications: Specification[];
+
+  private constructor() {
+    this.specifications = [];
+  }
+
+  public static getInstance(): MemorySpecificationsRepository {
+    if (!MemorySpecificationsRepository.INSTANCE) {
+      MemorySpecificationsRepository.INSTANCE =
+        new MemorySpecificationsRepository();
+    }
+
+    return MemorySpecificationsRepository.INSTANCE;
+  }
 
   create({ name, description }: ICreateSpecificationDTO): Specification {
     const specification = new Specification(name, description);
