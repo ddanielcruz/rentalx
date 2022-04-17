@@ -1,9 +1,7 @@
-import { CategoriesRepository } from "../../repositories/categories-repository";
+import { MemoryCategoriesRepository } from "../../repositories/implementations/memory-categories-repository";
 import { ListCategoriesController } from "./list-categories-controller";
 import { ListCategoriesUseCase } from "./list-categories-use-case";
 
-const categoriesRepository = new CategoriesRepository();
-const listCategoriesUseCase = new ListCategoriesUseCase(categoriesRepository);
-export const listCategoriesController = new ListCategoriesController(
-  listCategoriesUseCase
-);
+const repository = MemoryCategoriesRepository.getInstance();
+const useCase = new ListCategoriesUseCase(repository);
+export const listCategoriesController = new ListCategoriesController(useCase);

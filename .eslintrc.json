@@ -77,7 +77,8 @@
           "**/*.spec.js"
         ]
       }
-    ]
+    ],
+    "no-use-before-define": "off"
   },
   "settings": {
     "import/resolver": {
