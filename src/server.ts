@@ -1,13 +1,14 @@
 import express from "express";
+import swaggerUI from "swagger-ui-express";
 
-import { routes as categories } from "./routes/categories-routes";
-import { routes as specifications } from "./routes/specifications-routes";
+import { routes } from "./routes";
+import swaggerFile from "./swagger.json";
 
 const app = express();
 const port = process.env.PORT || 3333;
 
 app.use(express.json());
-app.use("/categories", categories);
-app.use("/specifications", specifications);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
+app.use(routes);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
