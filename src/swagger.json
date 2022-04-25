@@ -78,6 +78,112 @@
           }
         }
       }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Categories"],
+        "summary": "Upload a list of categories",
+        "description": "Upload a list of categories from a CSV file.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "File successfully processed."
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Create a specification",
+        "description": "Create a new specification if name is unique.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSpecification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Specification created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Specification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Spefication already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Specification": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateSpecification": {
+        "type": "object",
+        "required": ["name", "description"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }
