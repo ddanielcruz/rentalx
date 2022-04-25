@@ -19,6 +19,5 @@ export class Category {
     this.id = uuid();
     this.name = name;
     this.description = description;
-    this.createdAt = new Date();
   }
 }
