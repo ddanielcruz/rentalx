@@ -1,10 +1,10 @@
-import { Category } from "../../models/category";
-import { ICategoriesRepository } from "../../repositories/implementations/memory-categories-repository";
+import { Category } from "../../entities/category";
+import { ICategoriesRepository } from "../../repositories/categories-repository";
 
 class ListCategoriesUseCase {
   constructor(private readonly repository: ICategoriesRepository) {}
 
-  execute(): Category[] {
+  execute(): Promise<Category[]> {
     return this.repository.findAll();
   }
 }

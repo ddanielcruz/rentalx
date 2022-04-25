@@ -1,4 +1,4 @@
-import { Specification } from "../../models/specification";
+import { Specification } from "../../entities/specification";
 import { ISpecificationsRepository } from "../../repositories/specifications-repository";
 
 interface IRequest {

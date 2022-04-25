@@ -1,5 +1,5 @@
-import { Category } from "../../models/category";
-import { ICategoriesRepository } from "../../repositories/implementations/memory-categories-repository";
+import { Category } from "../../entities/category";
+import { ICategoriesRepository } from "../../repositories/categories-repository";
 
 interface IRequest {
   name: string;
@@ -9,8 +9,8 @@ interface IRequest {
 class CreateCategoryUseCase {
   constructor(private readonly repository: ICategoriesRepository) {}
 
-  execute({ name, description }: IRequest): Category {
-    const alreadyExists = this.repository.findByName(name);
+  async execute({ name, description }: IRequest): Promise<Category> {
+    const alreadyExists = await this.repository.findByName(name);
     if (alreadyExists) {
       throw new Error("Category already exists!");
     }

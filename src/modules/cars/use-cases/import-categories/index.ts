@@ -1,10 +1,9 @@
-import { MemoryCategoriesRepository } from "../../repositories/implementations/memory-categories-repository";
+import { DatabaseCategoriesRepository } from "../../repositories/implementations/database-categories-repository";
 import { ImportCategoriesController } from "./import-categories-controller";
 import { ImportCategoriesUseCase } from "./import-categories-use-case";
 
-const importCategoriesUseCase = new ImportCategoriesUseCase(
-  MemoryCategoriesRepository.getInstance()
-);
-export const importCategoriesController = new ImportCategoriesController(
-  importCategoriesUseCase
-);
+export default (): ImportCategoriesController => {
+  const repository = new DatabaseCategoriesRepository();
+  const useCase = new ImportCategoriesUseCase(repository);
+  return new ImportCategoriesController(useCase);
+};
