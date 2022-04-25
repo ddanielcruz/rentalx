@@ -17,4 +17,8 @@ export class DatabaseUsersRepository implements IUsersRepository {
 
     return this.repository.save(user);
   }
+
+  findByEmail(email: string): Promise<User | undefined> {
+    return this.repository.findOne({ email });
+  }
 }
