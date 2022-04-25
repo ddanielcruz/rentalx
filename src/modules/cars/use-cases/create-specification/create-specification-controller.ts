@@ -8,7 +8,7 @@ export class CreateSpecificationController {
     try {
       const { name, description } = request.body;
       const useCase = container.resolve(CreateSpecificationUseCase);
-      const specification = useCase.execute({ name, description });
+      const specification = await useCase.execute({ name, description });
 
       return response.status(201).json(specification);
     } catch (error) {

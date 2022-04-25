@@ -2,7 +2,7 @@ import { container } from "tsyringe";
 
 import { ICategoriesRepository } from "../../modules/cars/repositories/categories-repository";
 import { DatabaseCategoriesRepository } from "../../modules/cars/repositories/implementations/database-categories-repository";
-import { MemorySpecificationsRepository } from "../../modules/cars/repositories/implementations/memory-specifications-repository";
+import { DatabaseSpecificationsRepository } from "../../modules/cars/repositories/implementations/database-specifications-repository";
 import { ISpecificationsRepository } from "../../modules/cars/repositories/specifications-repository";
 
 container.registerSingleton<ICategoriesRepository>(
@@ -10,7 +10,7 @@ container.registerSingleton<ICategoriesRepository>(
   DatabaseCategoriesRepository
 );
 
-container.registerInstance<ISpecificationsRepository>(
+container.registerSingleton<ISpecificationsRepository>(
   "SpecificationsRepository",
-  MemorySpecificationsRepository.getInstance()
+  DatabaseSpecificationsRepository
 );
