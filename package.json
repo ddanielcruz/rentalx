@@ -1,5 +1,5 @@
 {
-  "name": "rentalx",
+  "name": "rentx",
   "version": "1.0.0",
   "description": "Node.js application built on Rocketseat's Ignite course, used to study basic concepts of TypeScript, SOLID, clean code and other techniques.",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ddanielcruz/rentalx.git"
+    "url": "git+https://github.com/ddanielcruz/rentx.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ddanielcruz/rentalx/issues"
+    "url": "https://github.com/ddanielcruz/rentx/issues"
   },
-  "homepage": "https://github.com/ddanielcruz/rentalx#readme",
+  "homepage": "https://github.com/ddanielcruz/rentx#readme",
   "dependencies": {
     "csv-parse": "^5.0.4",
     "express": "^4.17.3",
