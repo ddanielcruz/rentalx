@@ -2,6 +2,7 @@ import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
+import { UnauthorizedError } from "../../../../errors/unauthorized-error";
 import { IUsersRepository } from "../../repositories/users-repository";
 
 interface IRequest {
@@ -28,12 +29,12 @@ export class AuthenticateUserUseCase {
   async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.repository.findByEmail(email);
     if (!user) {
-      throw new Error("Invalid credentials!");
+      throw new UnauthorizedError("Invalid credentials!");
     }
 
     const samePassword = await compare(password, user.password);
     if (!samePassword) {
-      throw new Error("Invalid credentials!");
+      throw new UnauthorizedError("Invalid credentials!");
     }
 
     const secret = process.env.SECRET;
