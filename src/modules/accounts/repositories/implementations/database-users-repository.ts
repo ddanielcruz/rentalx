@@ -25,4 +25,8 @@ export class DatabaseUsersRepository implements IUsersRepository {
   findById(id: string): Promise<User> {
     return this.repository.findOne(id);
   }
+
+  async update(user: User): Promise<void> {
+    await this.repository.save(user);
+  }
 }

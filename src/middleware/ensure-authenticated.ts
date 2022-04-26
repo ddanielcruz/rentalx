@@ -28,6 +28,8 @@ export async function ensureAuthenticated(
     if (!user) {
       throw new UnauthorizedError("User does not exists.");
     }
+
+    request.user = { id: sub };
   } catch (error) {
     throw new UnauthorizedError("Token is not valid.");
   }
