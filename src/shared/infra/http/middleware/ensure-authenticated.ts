@@ -2,8 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { container } from "tsyringe";
 
-import { UnauthorizedError } from "../errors/unauthorized-error";
-import { IUsersRepository } from "../modules/accounts/repositories/users-repository";
+import { IUsersRepository } from "@modules/accounts/repositories/users-repository";
+import { UnauthorizedError } from "@shared/errors/unauthorized-error";
 
 interface IPayload {
   sub: string;

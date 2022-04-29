@@ -1,8 +1,8 @@
 import { hash } from "bcrypt";
 
-import { UnauthorizedError } from "@errors/unauthorized-error";
-import { User } from "@modules/accounts/entities/user";
+import { User } from "@modules/accounts/infra/typeorm/entities/user";
 import { MemoryUsersRepository } from "@modules/accounts/repositories/memory/memory-users-repository";
+import { UnauthorizedError } from "@shared/errors/unauthorized-error";
 
 import { AuthenticateUserUseCase } from "./authenticate-user-use-case";
 

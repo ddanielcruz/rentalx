@@ -1,11 +1,10 @@
 import { getRepository, Repository } from "typeorm";
 
-import { Category } from "@modules/cars/entities/category";
-
+import { Category } from "@modules/cars/infra/typeorm/entities/category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "../categories-repository";
+} from "@modules/cars/repositories/categories-repository";
 
 export class DatabaseCategoriesRepository implements ICategoriesRepository {
   private static INSTANCE: DatabaseCategoriesRepository;

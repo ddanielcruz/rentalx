@@ -1,6 +1,6 @@
-import { AppError } from "@errors/app-error";
 import { ICreateCategoryDTO } from "@modules/cars/repositories/categories-repository";
 import { MemoryCategoriesRepository } from "@modules/cars/repositories/memory/memory-categories-repository";
+import { AppError } from "@shared/errors/app-error";
 
 import { CreateCategoryUseCase } from "./create-category-use-case";
 
