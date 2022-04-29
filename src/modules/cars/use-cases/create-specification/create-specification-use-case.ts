@@ -1,13 +1,14 @@
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../errors/app-error";
-import { Specification } from "../../entities/specification";
-import { ISpecificationsRepository } from "../../repositories/specifications-repository";
+import { AppError } from "@errors/app-error";
+import { Specification } from "@modules/cars/entities/specification";
+import { ISpecificationsRepository } from "@modules/cars/repositories/specifications-repository";
 
 interface IRequest {
   name: string;
   description: string;
 }
+
 @injectable()
 export class CreateSpecificationUseCase {
   constructor(

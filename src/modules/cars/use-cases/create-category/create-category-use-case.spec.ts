@@ -1,6 +1,7 @@
-import { AppError } from "../../../../errors/app-error";
-import { ICreateCategoryDTO } from "../../repositories/categories-repository";
-import { MemoryCategoriesRepository } from "../../repositories/memory/memory-categories-repository";
+import { AppError } from "@errors/app-error";
+import { ICreateCategoryDTO } from "@modules/cars/repositories/categories-repository";
+import { MemoryCategoriesRepository } from "@modules/cars/repositories/memory/memory-categories-repository";
+
 import { CreateCategoryUseCase } from "./create-category-use-case";
 
 const FAKE_DTO: ICreateCategoryDTO = {

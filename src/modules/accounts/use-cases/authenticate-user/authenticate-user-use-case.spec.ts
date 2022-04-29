@@ -1,8 +1,9 @@
 import { hash } from "bcrypt";
 
-import { UnauthorizedError } from "../../../../errors/unauthorized-error";
-import { User } from "../../entities/user";
-import { MemoryUsersRepository } from "../../repositories/memory/memory-users-repository";
+import { UnauthorizedError } from "@errors/unauthorized-error";
+import { User } from "@modules/accounts/entities/user";
+import { MemoryUsersRepository } from "@modules/accounts/repositories/memory/memory-users-repository";
+
 import { AuthenticateUserUseCase } from "./authenticate-user-use-case";
 
 describe("AuthenticateUserUseCase", () => {
