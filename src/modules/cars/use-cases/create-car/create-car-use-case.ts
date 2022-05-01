@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import { Car } from "@modules/cars/infra/typeorm/entities/car";
 import { ICarsRepository } from "@modules/cars/repositories/cars-repository";
 import { AppError } from "@shared/errors/app-error";
@@ -12,8 +14,12 @@ interface IRequest {
   categoryId?: string;
 }
 
+@injectable()
 export class CreateCarUseCase {
-  constructor(private readonly repository: ICarsRepository) {}
+  constructor(
+    @inject("CarsRepository")
+    private readonly repository: ICarsRepository
+  ) {}
 
   async execute(request: IRequest): Promise<Car> {
     const alreadyExists = await this.repository.findByLicensePlate(

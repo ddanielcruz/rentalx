@@ -7,8 +7,6 @@ import {
 } from "@modules/cars/repositories/categories-repository";
 
 export class DatabaseCategoriesRepository implements ICategoriesRepository {
-  private static INSTANCE: DatabaseCategoriesRepository;
-
   private readonly repository: Repository<Category>;
 
   constructor() {

@@ -1,5 +1,13 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryColumn,
+} from "typeorm";
 import { v4 as uuid } from "uuid";
+
+import { Car } from "./car";
 
 @Entity("categories")
 export class Category {
@@ -14,6 +22,9 @@ export class Category {
 
   @CreateDateColumn()
   createdAt: Date;
+
+  @OneToMany(() => Car, (car) => car.category)
+  cars: Car[];
 
   constructor(name: string, description: string) {
     this.id = uuid();
