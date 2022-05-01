@@ -8,4 +8,4 @@ async function connect() {
   return createConnection(options);
 }
 
-connect();
+export const connection = connect();
