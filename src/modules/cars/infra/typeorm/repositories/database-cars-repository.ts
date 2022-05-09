@@ -38,4 +38,8 @@ export class DatabaseCarsRepository implements ICarsRepository {
   findByLicensePlate(licensePlate: string): Promise<Car | undefined> {
     return this.repository.findOne({ licensePlate });
   }
+
+  findAvailable(): Promise<Car[]> {
+    return this.repository.find({ available: true });
+  }
 }
